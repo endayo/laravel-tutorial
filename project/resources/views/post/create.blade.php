@@ -4,11 +4,17 @@
     @csrf
     <div>
         <label for="">タイトル</label>
-        <input type="text" name="title">
+        <input type="text" name="title" value="{{ old('title') }}">
+        @error('title')
+            <div>{{ $message }}</div>
+        @enderror
     </div>
     <div>
         <label for="">記事</label>
-        <textarea name="content"></textarea>
+        <textarea name="content">{{ old('content') }}</textarea>
+        @error('content')
+            <div>{{ $message }}</div>
+        @enderror
     </div>
 
     <button type="submit">作成</button>
