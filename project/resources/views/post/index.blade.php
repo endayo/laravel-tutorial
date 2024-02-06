@@ -1,6 +1,11 @@
+@extends('layouts.app')
+
+@section('content')
 <h1>Hello Post Page!</h1>
 
-<a href="{{ route('post.create') }}">新規作成</a>
+<div class="mb-3">
+    <a href="{{ route('post.create') }}" class="btn btn-primary">新規作成</a>
+</div>
 
 <table class="table" border="1">
     <thead>
@@ -19,10 +24,11 @@
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->created_at }}</td>
                 <td>
-                    <a href="{{ route('post.edit', ['id' => $post->id]) }}">編集</a>
-                    <a href="{{ route('post.destroy', ['id' => $post->id]) }}">削除</a>
+                    <a href="{{ route('post.edit', ['id' => $post->id]) }}" class="btn btn-primary">編集</a>
+                    <a href="{{ route('post.destroy', ['id' => $post->id]) }}"  class="btn btn-secondary">削除</a>
                 </td>
             </tr>
         @endforeach
     </tbody>
 </table>
+@endsection
